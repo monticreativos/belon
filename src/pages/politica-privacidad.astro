@@ -1,0 +1,83 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Navbar from "../components/Navbar.astro";
+import Footer from "../components/Footer.astro";
+---
+
+<BaseLayout title="Política de privacidad | Consultoría Belón">
+  <Navbar />
+
+  <main class="bg-background-light dark:bg-background-dark py-16">
+    <section class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h1 class="text-3xl font-black text-neutral-700 dark:text-slate-50 mb-6">
+        Política de privacidad
+      </h1>
+
+      <div class="space-y-6 text-sm leading-relaxed text-neutral-600 dark:text-slate-200">
+        <section>
+          <h2 class="text-base font-bold text-neutral-700 dark:text-slate-50 mb-2">
+            Responsable del tratamiento
+          </h2>
+          <p>
+            Consultoría Belón es responsable del tratamiento de los datos personales
+            recogidos a través de este sitio web.
+          </p>
+        </section>
+
+        <section>
+          <h2 class="text-base font-bold text-neutral-700 dark:text-slate-50 mb-2">
+            Finalidad del tratamiento
+          </h2>
+          <p>Los datos personales proporcionados a través de formularios de contacto serán utilizados exclusivamente para:</p>
+          <ul class="list-disc pl-5 mt-2 space-y-1.5">
+            <li>responder consultas</li>
+            <li>gestionar solicitudes de información</li>
+            <li>ofrecer servicios profesionales solicitados</li>
+          </ul>
+        </section>
+
+        <section>
+          <h2 class="text-base font-bold text-neutral-700 dark:text-slate-50 mb-2">
+            Legitimación
+          </h2>
+          <p>
+            La base legal para el tratamiento de los datos es el consentimiento del usuario
+            al enviar el formulario de contacto.
+          </p>
+        </section>
+
+        <section>
+          <h2 class="text-base font-bold text-neutral-700 dark:text-slate-50 mb-2">
+            Conservación de datos
+          </h2>
+          <p>
+            Los datos se conservarán durante el tiempo necesario para atender la solicitud
+            del usuario o mientras exista una relación profesional.
+          </p>
+        </section>
+
+        <section>
+          <h2 class="text-base font-bold text-neutral-700 dark:text-slate-50 mb-2">
+            Derechos del usuario
+          </h2>
+          <p>El usuario podrá ejercer los siguientes derechos:</p>
+          <ul class="list-disc pl-5 mt-2 space-y-1.5">
+            <li>acceso</li>
+            <li>rectificación</li>
+            <li>supresión</li>
+            <li>limitación del tratamiento</li>
+            <li>portabilidad</li>
+            <li>oposición</li>
+          </ul>
+          <p class="mt-2">
+            Para ejercer estos derechos puede enviar una solicitud a:
+            <span class="font-semibold">info@belon.es</span>
+          </p>
+        </section>
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+</BaseLayout>
+

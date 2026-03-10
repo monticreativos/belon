@@ -1,0 +1,37 @@
+---
+interface Props {
+  id: string;
+  title: string;
+  description: string;
+  icon: string;
+}
+
+const { id, title, description, icon } = Astro.props;
+---
+
+<article
+  class="card-animate group relative cursor-pointer rounded-2xl border border-slate-200/80 dark:border-slate-700 bg-white dark:bg-slate-900 p-6 shadow-sm shadow-slate-200/60 dark:shadow-slate-900/50 transition-all hover:-translate-y-1.5 hover:shadow-xl hover:shadow-primary/15"
+  data-open-modal={id}
+>
+  <div
+    class="inline-flex items-center justify-center mb-5 size-11 rounded-full bg-primary/10 text-primary"
+  >
+    <span class="material-symbols-outlined text-xl">{icon}</span>
+  </div>
+  <h3 class="text-base font-bold mb-2 text-neutral-600 dark:text-slate-50">
+    {title}
+  </h3>
+  <p class="text-sm text-neutral-500 dark:text-slate-300 mb-4">
+    {description}
+  </p>
+  <div class="flex items-center gap-2 text-xs font-bold uppercase tracking-[0.22em] text-primary">
+    <span>Ver más</span>
+    <span class="material-symbols-outlined text-sm transition-transform group-hover:translate-x-0.5"
+      >arrow_forward</span
+    >
+  </div>
+  <span
+    class="pointer-events-none absolute inset-x-0 -bottom-px h-1 rounded-b-2xl bg-gradient-to-r from-primary/60 via-primary/20 to-primary/60 opacity-0 transition-opacity group-hover:opacity-100"
+  ></span>
+</article>
+

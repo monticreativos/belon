@@ -1,0 +1,209 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import Navbar from "../../components/Navbar.astro";
+import Footer from "../../components/Footer.astro";
+import ServiceCard from "../../components/ServiceCard.astro";
+import ServiceModal from "../../components/ServiceModal.astro";
+---
+
+<BaseLayout title="Administrative law and appeals | Consultoría Belón">
+  <Navbar />
+
+  <main>
+    <!-- Hero -->
+    <section
+      class="section-animate relative bg-white dark:bg-background-dark py-20 lg:py-24 overflow-hidden"
+    >
+      <div
+        class="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(0,141,210,0.2),transparent_70%)]"
+      ></div>
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div class="max-w-3xl">
+          <div
+            class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 text-primary text-xs font-bold tracking-[0.2em] uppercase mb-5"
+          >
+            <span class="material-symbols-outlined text-sm">gavel</span>
+            Administrative law
+          </div>
+          <h1
+            class="text-4xl sm:text-5xl lg:text-6xl font-black text-neutral-600 dark:text-slate-50 leading-[1.05] mb-6"
+          >
+            Administrative law and
+            <span class="text-primary">appeals against public authorities</span>
+          </h1>
+          <p class="text-lg text-neutral-500 dark:text-slate-300 max-w-2xl mb-3">
+            Administrative law governs the relationship between public authorities and
+            citizens and businesses.
+          </p>
+          <p class="text-sm text-neutral-500 dark:text-slate-300 max-w-2xl mb-3">
+            In recent years these relationships have become increasingly complex, leading
+            to conflicts related to licences, penalties, liability claims or administrative
+            procedures.
+          </p>
+          <p class="text-sm text-neutral-500 dark:text-slate-300 max-w-2xl">
+            Consultoría Belón has broad experience in this field and advises individuals
+            and companies in defending their rights against public administrations.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Services grid -->
+    <section class="section-animate-delayed py-20 bg-background-light dark:bg-background-dark">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <header class="max-w-3xl mb-12">
+          <div class="h-1 w-16 bg-primary/70 mb-4 rounded-full"></div>
+          <h2 class="text-3xl font-black mb-3 uppercase tracking-tight">
+            Administrative law services
+          </h2>
+          <p class="text-neutral-500 dark:text-slate-300">
+            Our main services in administrative appeals and claims against public
+            authorities.
+          </p>
+        </header>
+
+        <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+          <ServiceCard
+            id="recursos-administrativos"
+            icon="description"
+            title="Administrative appeals"
+            description="Advice and representation in appeals against administrative decisions."
+          />
+          <ServiceCard
+            id="reclamaciones-administracion"
+            icon="campaign"
+            title="Claims against authorities"
+            description="Economic claims and liability actions against public administrations."
+          />
+          <ServiceCard
+            id="multas-sanciones"
+            icon="report"
+            title="Fines and sanctions"
+            description="Defence in sanctioning procedures and appeals against administrative fines."
+          />
+          <ServiceCard
+            id="informes-periciales"
+            icon="analytics"
+            title="Expert reports"
+            description="Technical reports in support of administrative and court proceedings."
+          />
+        </div>
+      </div>
+    </section>
+
+    <!-- Modals -->
+    <ServiceModal id="recursos-administrativos" title="Administrative appeals">
+      <p>
+        We provide advice and representation in administrative appeals, both in the
+        administrative phase and before the administrative courts.
+      </p>
+      <p class="font-semibold text-xs tracking-[0.25em] uppercase text-primary">
+        Our work includes
+      </p>
+      <ul class="list-disc pl-5 space-y-1.5">
+        <li>All types of administrative appeals.</li>
+        <li>Prior administrative claims.</li>
+        <li>Contentious-administrative proceedings.</li>
+        <li>Defence against administrative decisions and orders.</li>
+      </ul>
+      <p>
+        We analyse each case in detail to determine the best legal strategy against the
+        public authority involved.
+      </p>
+    </ServiceModal>
+
+    <ServiceModal
+      id="reclamaciones-administracion"
+      title="Claims against public authorities"
+    >
+      <p>
+        We handle claims against public administrations when damages or losses have been
+        caused by their actions or omissions.
+      </p>
+      <p class="font-semibold text-xs tracking-[0.25em] uppercase text-primary">
+        Typical actions
+      </p>
+      <ul class="list-disc pl-5 space-y-1.5">
+        <li>Claims for administrative liability.</li>
+        <li>Claims for late-payment interest due to delayed payments.</li>
+        <li>Economic claims against public bodies.</li>
+      </ul>
+      <p>
+        Our goal is to ensure that citizens and companies receive the compensation they
+        are entitled to when a public body has caused them harm.
+      </p>
+    </ServiceModal>
+
+    <ServiceModal
+      id="multas-sanciones"
+      title="Fines and administrative sanctions"
+    >
+      <p>
+        We advise on sanctioning procedures, reviewing the legality of the process and the
+        evidence submitted by the administration.
+      </p>
+      <p class="font-semibold text-xs tracking-[0.25em] uppercase text-primary">
+        Most common cases
+      </p>
+      <ul class="list-disc pl-5 space-y-1.5">
+        <li>Planning and building sanctions.</li>
+        <li>Tax penalties.</li>
+        <li>General administrative sanctioning proceedings.</li>
+        <li>Appeals against administrative fines.</li>
+      </ul>
+      <p>
+        We examine each file to identify possible defects in the administrative procedure
+        and build the strongest possible defence.
+      </p>
+    </ServiceModal>
+
+    <ServiceModal
+      id="informes-periciales"
+      title="Expert reports for court proceedings"
+    >
+      <p>
+        Expert reports are technical documents prepared by specialists in which
+        conclusions are presented based on professional knowledge.
+      </p>
+      <p>
+        These reports may be requested by the court or by any of the parties to a
+        procedure and are intended to provide technical clarity in complex matters.
+      </p>
+      <p class="font-semibold text-xs tracking-[0.25em] uppercase text-primary">
+        How we work
+      </p>
+      <ul class="list-disc pl-5 space-y-1.5">
+        <li>Detailed analysis of documentation and the situation under examination.</li>
+        <li>Clear, objective and well-founded conclusions.</li>
+        <li>Defence of the report in court where required.</li>
+      </ul>
+    </ServiceModal>
+
+    <!-- Final CTA -->
+    <section class="section-animate py-20 bg-primary relative overflow-hidden">
+      <div class="absolute inset-0 opacity-10 pointer-events-none">
+        <div
+          class="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-white via-transparent to-transparent"
+        ></div>
+      </div>
+      <div class="max-w-4xl mx-auto px-4 text-center relative z-10">
+        <h2 class="text-3xl lg:text-4xl font-black text-white mb-6 leading-tight">
+          Do you have a problem with a public authority?
+        </h2>
+        <p class="text-white/90 text-lg mb-8">
+          Our team can study your case and advise you on how to defend your rights against
+          public administrations.
+        </p>
+        <a
+          href="/en/contact"
+          class="inline-flex items-center justify-center bg-white text-primary px-10 py-4 rounded font-black text-sm tracking-[0.2em] uppercase shadow-2xl hover:bg-slate-50 transition-colors"
+        >
+          Contact us
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+</BaseLayout>
+

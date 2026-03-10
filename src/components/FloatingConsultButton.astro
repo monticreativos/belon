@@ -1,0 +1,18 @@
+---
+import { getLocaleFromPath } from "../i18n/routes";
+
+const pathname = Astro.url.pathname;
+const locale = getLocaleFromPath(pathname);
+const label = locale === "en" ? "Request consultation" : "Solicitar consulta";
+---
+
+<button
+  type="button"
+  class="fixed bottom-5 right-4 sm:bottom-7 sm:right-7 z-40 inline-flex items-center gap-2 rounded-full bg-primary px-5 sm:px-7 py-2.5 text-[11px] sm:text-xs font-black tracking-[0.22em] uppercase text-white shadow-lg shadow-primary/40 hover:bg-primary/90 hover:translate-y-[-2px] transition-all"
+  data-open-contact-modal
+>
+  <span class="hidden sm:inline">{label}</span>
+  <span class="sm:hidden">{locale === "en" ? "Consultation" : "Consulta"}</span>
+  <span class="material-symbols-outlined text-base">arrow_forward</span>
+</button>
+

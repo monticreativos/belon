@@ -1,0 +1,77 @@
+---
+import { getLocaleFromPath, getPathForLocale } from "../i18n/routes";
+
+const pathname = Astro.url.pathname;
+const currentLocale = getLocaleFromPath(pathname);
+
+const toEs = getPathForLocale(pathname, "es");
+const toEn = getPathForLocale(pathname, "en");
+---
+
+<div
+  class="inline-flex items-center rounded-full border border-slate-200 bg-white/80 dark:bg-slate-800/80 dark:border-slate-600 text-[11px] font-semibold overflow-hidden shadow-sm"
+  data-lang-switcher
+>
+  <a
+    href={toEs}
+    data-lang="es"
+    class={`flex items-center gap-1.5 px-2.5 py-1.5 transition-colors ${
+      currentLocale === "es"
+        ? "bg-primary text-white"
+        : "text-neutral-600 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-700"
+    }`}
+  >
+    <img
+      src="https://flagcdn.com/es.svg"
+      alt=""
+      class="h-4 w-6 object-cover rounded-[2px] shrink-0"
+      width="22"
+      height="16"
+      loading="lazy"
+      aria-hidden="true"
+    />
+    <span class="hidden sm:inline">ES</span>
+  </a>
+  <a
+    href={toEn}
+    data-lang="en"
+    class={`flex items-center gap-1.5 px-2.5 py-1.5 transition-colors border-l border-slate-200 dark:border-slate-600 ${
+      currentLocale === "en"
+        ? "bg-primary text-white"
+        : "text-neutral-600 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-700"
+    }`}
+  >
+    <img
+      src="https://flagcdn.com/gb.svg"
+      alt=""
+      class="h-4 w-6 object-cover rounded-[2px] shrink-0"
+      width="22"
+      height="16"
+      loading="lazy"
+      aria-hidden="true"
+    />
+    <span class="hidden sm:inline">EN</span>
+  </a>
+</div>
+
+<script is:inline>
+  if (typeof window !== "undefined") {
+    document.addEventListener("DOMContentLoaded", function () {
+      var root = document.querySelector("[data-lang-switcher]");
+      if (!root) return;
+
+      root.addEventListener("click", function (event) {
+        var target = event.target;
+        if (!(target instanceof HTMLElement)) return;
+        var link = target.closest("[data-lang]");
+        if (!link) return;
+        var lang = link.getAttribute("data-lang");
+        if (!lang) return;
+        try {
+          localStorage.setItem("preferred-language", lang);
+        } catch (e) {}
+      });
+    });
+  }
+</script>
+

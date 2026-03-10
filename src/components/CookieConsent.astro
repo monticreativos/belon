@@ -1,0 +1,314 @@
+<div
+  id="cookie-consent-root"
+  class="fixed inset-0 z-40 items-end justify-center"
+  style="display: none"
+>
+  <div class="absolute inset-0 bg-black/40"></div>
+
+  <div class="relative w-full pointer-events-none flex justify-center pb-6 px-4">
+    <div
+      class="pointer-events-auto w-full max-w-3xl rounded-xl bg-white shadow-xl shadow-black/20 border border-slate-200/80 px-5 py-4 sm:px-6 sm:py-5"
+    >
+      <div class="flex flex-col sm:flex-row gap-4 sm:gap-5 items-start">
+        <div class="flex-1">
+          <p class="text-xs font-semibold tracking-[0.24em] uppercase text-primary mb-2">
+            Cookies
+          </p>
+          <h3 class="text-base font-bold text-neutral-800 mb-1">
+            Utilizamos cookies para mejorar su experiencia.
+          </h3>
+          <p class="text-sm text-neutral-600">
+            Usamos cookies técnicas, analíticas y de marketing para personalizar contenidos,
+            analizar el tráfico y optimizar nuestros servicios. Puede aceptar todas las
+            cookies, rechazarlas o configurar sus preferencias.
+          </p>
+        </div>
+
+        <div class="flex flex-col gap-2 w-full sm:w-auto">
+          <button
+            type="button"
+            data-cookie-accept
+            class="w-full inline-flex items-center justify-center rounded-full bg-primary px-5 py-2 text-xs font-bold uppercase tracking-[0.18em] text-white shadow-sm shadow-primary/40 hover:bg-primary/90 transition-colors"
+          >
+            Aceptar cookies
+          </button>
+          <button
+            type="button"
+            data-cookie-reject
+            class="w-full inline-flex items-center justify-center rounded-full border border-slate-300 px-5 py-2 text-xs font-bold uppercase tracking-[0.18em] text-neutral-700 hover:bg-slate-50 transition-colors"
+          >
+            Rechazar
+          </button>
+          <button
+            type="button"
+            data-cookie-open-settings
+            class="w-full inline-flex items-center justify-center rounded-full px-5 py-2 text-xs font-semibold uppercase tracking-[0.18em] text-neutral-600 hover:text-primary"
+          >
+            Configurar
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal de configuración de cookies -->
+<div
+  id="cookie-settings-modal"
+  class="fixed inset-0 z-50 hidden items-center justify-center bg-black/40 px-4"
+  aria-hidden="true"
+>
+  <div
+    class="max-w-lg w-full rounded-2xl bg-white shadow-2xl shadow-black/30 border border-slate-200/80 p-5 sm:p-6"
+  >
+    <div class="flex items-start justify-between gap-4 mb-4">
+      <div>
+        <h2 class="text-base font-bold text-neutral-800 mb-1">
+          Preferencias de cookies
+        </h2>
+        <p class="text-xs text-neutral-500">
+          Puede personalizar el uso de cookies no esenciales. Las cookies técnicas son
+          necesarias para el funcionamiento del sitio y no pueden desactivarse.
+        </p>
+      </div>
+      <button
+        type="button"
+        class="inline-flex items-center justify-center rounded-full border border-slate-200 size-8 text-slate-400 hover:bg-slate-50 hover:text-slate-700 transition-colors"
+        data-cookie-close-settings
+        aria-label="Cerrar configuración de cookies"
+      >
+        <span class="material-symbols-outlined text-base">close</span>
+      </button>
+    </div>
+
+    <div class="space-y-3 mb-5">
+      <div class="flex items-start gap-3">
+        <input
+          id="cookie-tech"
+          type="checkbox"
+          checked
+          disabled
+          class="mt-1 size-4 rounded border-slate-300 text-primary"
+        />
+        <div>
+          <label for="cookie-tech" class="text-sm font-semibold text-neutral-800">
+            Cookies técnicas (siempre activas)
+          </label>
+          <p class="text-xs text-neutral-500">
+            Necesarias para el correcto funcionamiento del sitio web y la seguridad.
+          </p>
+        </div>
+      </div>
+
+      <div class="flex items-start gap-3">
+        <input
+          id="cookie-analytics"
+          type="checkbox"
+          data-cookie-analytics
+          class="mt-1 size-4 rounded border-slate-300 text-primary"
+        />
+        <div>
+          <label for="cookie-analytics" class="text-sm font-semibold text-neutral-800">
+            Cookies analíticas
+          </label>
+          <p class="text-xs text-neutral-500">
+            Nos ayudan a entender cómo se utiliza la web para mejorar nuestros servicios.
+          </p>
+        </div>
+      </div>
+
+      <div class="flex items-start gap-3">
+        <input
+          id="cookie-marketing"
+          type="checkbox"
+          data-cookie-marketing
+          class="mt-1 size-4 rounded border-slate-300 text-primary"
+        />
+        <div>
+          <label for="cookie-marketing" class="text-sm font-semibold text-neutral-800">
+            Cookies de marketing
+          </label>
+          <p class="text-xs text-neutral-500">
+            Utilizadas para mostrar contenidos y campañas adaptadas a sus intereses.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="flex flex-col sm:flex-row justify-end gap-2">
+      <button
+        type="button"
+        data-cookie-close-settings
+        class="inline-flex items-center justify-center rounded-full px-5 py-2 text-xs font-semibold uppercase tracking-[0.18em] text-neutral-600 hover:text-neutral-800"
+      >
+        Cancelar
+      </button>
+      <button
+        type="button"
+        data-cookie-save-settings
+        class="inline-flex items-center justify-center rounded-full bg-primary px-6 py-2 text-xs font-bold uppercase tracking-[0.18em] text-white shadow-sm shadow-primary/40 hover:bg-primary/90 transition-colors"
+      >
+        Guardar preferencias
+      </button>
+    </div>
+  </div>
+</div>
+
+<script is:inline>
+  if (typeof window !== "undefined") {
+    document.addEventListener("DOMContentLoaded", function () {
+      var root = document.getElementById("cookie-consent-root");
+      if (!root) return;
+
+      var bannerVisible = false;
+
+      function getPreferences() {
+        try {
+          var stored = localStorage.getItem("cookie-preferences");
+          if (!stored) return null;
+          return JSON.parse(stored);
+        } catch (e) {
+          return null;
+        }
+      }
+
+      function setPreferences(prefs) {
+        try {
+          localStorage.setItem("cookie-preferences", JSON.stringify(prefs));
+        } catch (e) {}
+      }
+
+      function showBannerIfNeeded() {
+        var consent = null;
+        try {
+          consent = localStorage.getItem("cookie-consent");
+        } catch (e) {}
+
+        if (!consent) {
+          root.style.display = "flex";
+          bannerVisible = true;
+        }
+      }
+
+      function hideBanner() {
+        root.style.display = "none";
+        bannerVisible = false;
+      }
+
+      function setConsent(status, prefs) {
+        try {
+          localStorage.setItem("cookie-consent", status);
+        } catch (e) {}
+        if (prefs) {
+          setPreferences(prefs);
+        }
+      }
+
+      var acceptBtn = root.querySelector("[data-cookie-accept]");
+      var rejectBtn = root.querySelector("[data-cookie-reject]");
+      var openSettingsBtn = root.querySelector("[data-cookie-open-settings]");
+      var manageTriggers = document.querySelectorAll("[data-cookie-manage]");
+
+      var settingsModal = document.getElementById("cookie-settings-modal");
+      var closeSettingsButtons = settingsModal
+        ? settingsModal.querySelectorAll("[data-cookie-close-settings]")
+        : [];
+      var saveSettingsBtn = settingsModal
+        ? settingsModal.querySelector("[data-cookie-save-settings]")
+        : null;
+      var analyticsCheckbox = settingsModal
+        ? settingsModal.querySelector("[data-cookie-analytics]")
+        : null;
+      var marketingCheckbox = settingsModal
+        ? settingsModal.querySelector("[data-cookie-marketing]")
+        : null;
+
+      function openSettings() {
+        if (!settingsModal) return;
+
+        var prefs = getPreferences();
+        if (prefs) {
+          analyticsCheckbox.checked = !!prefs.analytics;
+          marketingCheckbox.checked = !!prefs.marketing;
+        } else {
+          var consent = localStorage.getItem("cookie-consent");
+          var analyticsDefault = consent === "accepted";
+          var marketingDefault = consent === "accepted";
+          analyticsCheckbox.checked = analyticsDefault;
+          marketingCheckbox.checked = marketingDefault;
+        }
+
+        settingsModal.classList.remove("hidden");
+        settingsModal.classList.add("flex");
+      }
+
+      function closeSettings() {
+        if (!settingsModal) return;
+        settingsModal.classList.add("hidden");
+        settingsModal.classList.remove("flex");
+      }
+
+      if (acceptBtn) {
+        acceptBtn.addEventListener("click", function () {
+          setConsent("accepted", { analytics: true, marketing: true });
+          hideBanner();
+        });
+      }
+
+      if (rejectBtn) {
+        rejectBtn.addEventListener("click", function () {
+          setConsent("rejected", { analytics: false, marketing: false });
+          hideBanner();
+        });
+      }
+
+      if (openSettingsBtn) {
+        openSettingsBtn.addEventListener("click", function () {
+          openSettings();
+        });
+      }
+
+      if (manageTriggers && manageTriggers.length) {
+        manageTriggers.forEach(function (btn) {
+          btn.addEventListener("click", function (event) {
+            event.preventDefault();
+            openSettings();
+          });
+        });
+      }
+
+      if (settingsModal) {
+        settingsModal.addEventListener("click", function (event) {
+          if (event.target === settingsModal) {
+            closeSettings();
+          }
+        });
+      }
+
+      if (closeSettingsButtons && closeSettingsButtons.length) {
+        closeSettingsButtons.forEach(function (btn) {
+          btn.addEventListener("click", function () {
+            closeSettings();
+          });
+        });
+      }
+
+      if (saveSettingsBtn && analyticsCheckbox && marketingCheckbox) {
+        saveSettingsBtn.addEventListener("click", function () {
+          var prefs = {
+            analytics: !!analyticsCheckbox.checked,
+            marketing: !!marketingCheckbox.checked,
+          };
+
+          var status = prefs.analytics || prefs.marketing ? "accepted" : "rejected";
+          setConsent(status, prefs);
+          closeSettings();
+          hideBanner();
+        });
+      }
+
+      showBannerIfNeeded();
+    });
+  }
+</script>
+

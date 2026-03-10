@@ -1,0 +1,390 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Navbar from "../components/Navbar.astro";
+import Footer from "../components/Footer.astro";
+import ServiceCard from "../components/ServiceCard.astro";
+import ServiceModal from "../components/ServiceModal.astro";
+---
+
+<BaseLayout title="Tasaciones y valoraciones inmobiliarias | Consultoría Belón">
+  <Navbar />
+
+  <main>
+    <!-- Hero -->
+    <section
+      class="section-animate relative bg-white dark:bg-background-dark py-20 lg:py-24 overflow-hidden"
+    >
+      <div
+        class="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(0,141,210,0.22),transparent_70%)]"
+      ></div>
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div class="max-w-3xl">
+          <div
+            class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 text-primary text-xs font-bold tracking-[0.2em] uppercase mb-5"
+          >
+            <span class="material-symbols-outlined text-sm">analytics</span>
+            Tasaciones y valoraciones
+          </div>
+          <h1
+            class="text-4xl sm:text-5xl lg:text-6xl font-black text-neutral-600 dark:text-slate-50 leading-[1.05] mb-6"
+          >
+            Tasaciones y
+            <span class="text-primary">valoraciones inmobiliarias</span>
+          </h1>
+          <p class="text-lg text-neutral-500 dark:text-slate-300 max-w-2xl mb-4">
+            Consultoría Belón realiza tasaciones inmobiliarias de viviendas, locales,
+            solares, naves, promociones y todo tipo de bienes inmuebles.
+          </p>
+          <p class="text-sm text-neutral-500 dark:text-slate-300 max-w-2xl mb-3">
+            Las valoraciones pueden realizarse para múltiples finalidades:
+            compraventas, herencias, separaciones, valoraciones fiscales,
+            reclamaciones ante la administración, procedimientos judiciales o análisis
+            de inversiones inmobiliarias.
+          </p>
+          <p class="text-sm text-neutral-500 dark:text-slate-300 max-w-2xl">
+            Nuestro equipo cuenta con amplia experiencia en tasaciones judiciales,
+            expropiaciones y tasaciones periciales contradictorias frente a Hacienda y
+            Catastro.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Services grid -->
+    <section class="section-animate-delayed py-20 bg-background-light dark:bg-background-dark">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <header class="max-w-3xl mb-12">
+          <div class="h-1 w-16 bg-primary/70 mb-4 rounded-full"></div>
+          <h2 class="text-3xl font-black mb-3 uppercase tracking-tight">
+            Servicios de valoraciones
+          </h2>
+          <p class="text-neutral-500 dark:text-slate-300">
+            Presentamos nuestras principales líneas de trabajo en materia de
+            tasaciones y valoraciones. Haga clic en cada tarjeta para conocer el
+            detalle del servicio.
+          </p>
+        </header>
+
+        <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+          <ServiceCard
+            id="tasaciones-inmobiliarias"
+            icon="home_work"
+            title="Tasaciones inmobiliarias"
+            description="Valoración profesional de todo tipo de inmuebles y derechos reales asociados."
+          />
+          <ServiceCard
+            id="tasacion-pericial"
+            icon="balance"
+            title="Tasación pericial contradictoria"
+            description="Defensa frente a comprobaciones de valores de Hacienda mediante pericial contradictoria."
+          />
+          <ServiceCard
+            id="peritacion-judicial"
+            icon="gavel"
+            title="Peritación judicial"
+            description="Informes periciales para procedimientos judiciales relacionados con inmuebles."
+          />
+          <ServiceCard
+            id="valoraciones-fiscales"
+            icon="request_quote"
+            title="Valoraciones fiscales y ahorro"
+            description="Análisis de valores para reducir la carga fiscal cuando el inmueble está sobrevalorado."
+          />
+          <ServiceCard
+            id="operaciones-vinculadas"
+            icon="sync_alt"
+            title="Operaciones vinculadas"
+            description="Justificación de valores de mercado en transacciones entre partes vinculadas."
+          />
+          <ServiceCard
+            id="inventario-bienes"
+            icon="inventory_2"
+            title="Inventario de bienes"
+            description="Inventarios actualizados de bienes inmuebles para empresas y administraciones."
+          />
+          <ServiceCard
+            id="adm-local"
+            icon="apartment"
+            title="Valoraciones para administración local"
+            description="Informes para expedientes administrativos y liquidaciones complementarias."
+          />
+          <ServiceCard
+            id="analisis-inversiones"
+            icon="insights"
+            title="Análisis de inversiones"
+            description="Estudios de viabilidad y rentabilidad para decisiones de inversión inmobiliaria."
+          />
+        </div>
+      </div>
+    </section>
+
+    <!-- Modals -->
+    <ServiceModal id="tasaciones-inmobiliarias" title="Tasaciones inmobiliarias">
+      <p>
+        Realizamos tasaciones inmobiliarias de todo tipo de bienes, adaptando la
+        metodología a la naturaleza del activo y a la finalidad del informe.
+      </p>
+      <p class="font-semibold text-xs tracking-[0.25em] uppercase text-primary">
+        Bienes que valoramos
+      </p>
+      <ul class="list-disc pl-5 space-y-1.5">
+        <li>Viviendas.</li>
+        <li>Locales comerciales y oficinas.</li>
+        <li>Plazas de garaje y trasteros.</li>
+        <li>Naves industriales.</li>
+        <li>Fincas rústicas.</li>
+        <li>Solares y terrenos.</li>
+        <li>Inmuebles vinculados a actividades como hoteles, clínicas o residencias.</li>
+      </ul>
+      <p class="font-semibold text-xs tracking-[0.25em] uppercase text-primary">
+        Derechos y situaciones especiales
+      </p>
+      <ul class="list-disc pl-5 space-y-1.5">
+        <li>Usufructo y nuda propiedad.</li>
+        <li>Servidumbres y concesiones administrativas.</li>
+        <li>Derechos de superficie.</li>
+        <li>
+          Evaluación de daños, indemnizaciones, reparaciones o elementos constructivos
+          concretos.
+        </li>
+      </ul>
+    </ServiceModal>
+
+    <ServiceModal id="tasacion-pericial" title="Tasación pericial contradictoria">
+      <p>
+        Ayudamos a clientes que han recibido una comprobación de valores por parte de
+        la Administración y consideran que el valor asignado a su inmueble es
+        excesivo.
+      </p>
+      <p>
+        Analizamos la valoración realizada por Hacienda y proponemos una estrategia
+        para recurrirla mediante una tasación pericial contradictoria.
+      </p>
+      <p class="font-semibold text-xs tracking-[0.25em] uppercase text-primary">
+        Procedimientos habituales
+      </p>
+      <ul class="list-disc pl-5 space-y-1.5">
+        <li>Impuesto de Transmisiones Patrimoniales (ITP).</li>
+        <li>Impuesto de Sucesiones y Donaciones.</li>
+      </ul>
+      <p>
+        En muchos casos este procedimiento permite reducir de forma significativa la
+        base imponible del impuesto.
+      </p>
+    </ServiceModal>
+
+    <ServiceModal id="peritacion-judicial" title="Peritación judicial">
+      <p>
+        Realizamos informes periciales para procedimientos judiciales relacionados con
+        bienes inmuebles, aportando una valoración objetiva y fundamentada.
+      </p>
+      <p class="font-semibold text-xs tracking-[0.25em] uppercase text-primary">
+        Casos habituales
+      </p>
+      <ul class="list-disc pl-5 space-y-1.5">
+        <li>Herencias y particiones hereditarias.</li>
+        <li>Separaciones y divorcios.</li>
+        <li>Embargos y ejecuciones hipotecarias.</li>
+        <li>Expropiaciones.</li>
+        <li>Valoración de daños, indemnizaciones o incumplimientos contractuales.</li>
+      </ul>
+      <p>
+        Nuestros informes pueden utilizarse como prueba técnica en procedimientos
+        judiciales y se elaboran siguiendo criterios reconocidos por los tribunales.
+      </p>
+    </ServiceModal>
+
+    <ServiceModal
+      id="valoraciones-fiscales"
+      title="Valoraciones fiscales y ahorro de impuestos"
+    >
+      <p>
+        Muchos impuestos pueden recurrirse cuando el valor del inmueble está
+        sobrevalorado o no se ajusta a su realidad física y de mercado.
+      </p>
+      <p class="font-semibold text-xs tracking-[0.25em] uppercase text-primary">
+        Analizamos casos relacionados con
+      </p>
+      <ul class="list-disc pl-5 space-y-1.5">
+        <li>Compraventas entre particulares o con sociedades.</li>
+        <li>Herencias y adquisiciones mortis causa.</li>
+        <li>Extinción de condominios.</li>
+        <li>Liquidación de gananciales.</li>
+      </ul>
+      <p>
+        Si se actúa a tiempo es posible reducir de manera considerable la carga
+        fiscal, apoyando la reclamación en informes de valoración sólidos.
+      </p>
+    </ServiceModal>
+
+    <ServiceModal
+      id="operaciones-vinculadas"
+      title="Valoración para operaciones vinculadas"
+    >
+      <p>
+        Las operaciones vinculadas se producen cuando existen transacciones entre
+        sociedades relacionadas o entre sociedades y sus socios o administradores.
+      </p>
+      <p>
+        La normativa obliga a justificar que estas operaciones se realizan a valor de
+        mercado para evitar ajustes y sanciones por parte de la inspección tributaria.
+      </p>
+      <p class="font-semibold text-xs tracking-[0.25em] uppercase text-primary">
+        Cómo ayudamos
+      </p>
+      <ul class="list-disc pl-5 space-y-1.5">
+        <li>Determinación del valor de mercado del inmueble objeto de la operación.</li>
+        <li>Selección y justificación de métodos de valoración aceptados.</li>
+        <li>Elaboración de informes y dossier de soporte para inspección.</li>
+      </ul>
+    </ServiceModal>
+
+    <ServiceModal id="inventario-bienes" title="Inventario de bienes inmuebles">
+      <p>
+        Realizamos inventarios actualizados de bienes inmobiliarios para empresas,
+        patrimoniales familiares y administraciones públicas.
+      </p>
+      <p>
+        Un inventario actualizado permite reducir costes, mejorar el control y
+        cumplir con obligaciones legales.
+      </p>
+      <p class="font-semibold text-xs tracking-[0.25em] uppercase text-primary">
+        Beneficios
+      </p>
+      <ul class="list-disc pl-5 space-y-1.5">
+        <li>Reducción de primas de seguros al ajustar capitales asegurados.</li>
+        <li>Optimización de amortizaciones fiscales.</li>
+        <li>Mejora del control interno del patrimonio inmobiliario.</li>
+        <li>
+          Cumplimiento de obligaciones legales de inventario en administraciones
+          locales.
+        </li>
+      </ul>
+      <p>
+        En el caso de los ayuntamientos, la legislación obliga a mantener actualizado
+        el inventario de bienes patrimoniales.
+      </p>
+    </ServiceModal>
+
+    <ServiceModal
+      id="adm-local"
+      title="Valoraciones para administración local"
+    >
+      <p>
+        Realizamos valoraciones para expedientes administrativos tramitados por
+        ayuntamientos y otras entidades públicas.
+      </p>
+      <p class="font-semibold text-xs tracking-[0.25em] uppercase text-primary">
+        Expedientes habituales
+      </p>
+      <ul class="list-disc pl-5 space-y-1.5">
+        <li>Liquidaciones complementarias de licencias.</li>
+        <li>Valoración de aprovechamiento urbanístico.</li>
+        <li>Sanciones por obras ilegales.</li>
+        <li>Concesiones administrativas y canon asociado.</li>
+      </ul>
+      <p>
+        Nuestros informes permiten presentar alegaciones técnicas frente a la
+        Administración y ajustar las cuantías a valores razonables.
+      </p>
+    </ServiceModal>
+
+    <ServiceModal
+      id="analisis-inversiones"
+      title="Análisis de inversiones inmobiliarias"
+    >
+      <p>
+        Estudiamos la viabilidad económica de inversiones inmobiliarias mediante un
+        análisis técnico y económico completo.
+      </p>
+      <p class="font-semibold text-xs tracking-[0.25em] uppercase text-primary">
+        Incluye
+      </p>
+      <ul class="list-disc pl-5 space-y-1.5">
+        <li>Valoración del activo y de sus posibles escenarios de explotación.</li>
+        <li>Análisis de rentabilidad y flujos de caja esperados.</li>
+        <li>Estudio de cargas urbanísticas y condicionantes legales.</li>
+        <li>Evaluación de riesgos y sensibilidad frente a cambios de mercado.</li>
+      </ul>
+      <p>
+        Este análisis permite tomar decisiones de inversión con mayor seguridad y
+        alineadas con la estrategia patrimonial del cliente.
+      </p>
+    </ServiceModal>
+
+    <!-- CTA final -->
+    <section class="section-animate py-20 bg-primary relative overflow-hidden">
+      <div class="absolute inset-0 opacity-10 pointer-events-none">
+        <div
+          class="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-white via-transparent to-transparent"
+        ></div>
+      </div>
+      <div class="max-w-4xl mx-auto px-4 text-center relative z-10">
+        <h2 class="text-3xl lg:text-4xl font-black text-white mb-6 leading-tight">
+          ¿Necesita una tasación o valoración inmobiliaria?
+        </h2>
+        <p class="text-white/90 text-lg mb-8">
+          Nuestro equipo puede estudiar su caso y asesorarle en la valoración de su
+          inmueble, ya sea para operaciones privadas, fiscales o judiciales.
+        </p>
+        <a
+          href="/contacto"
+          class="inline-flex items-center justify-center bg-white text-primary px-10 py-4 rounded font-black text-sm tracking-[0.2em] uppercase shadow-2xl hover:bg-slate-50 transition-colors"
+        >
+          Contactar con nosotros
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+
+  <!-- Minimal modal script -->
+  <script is:inline>
+    (() => {
+      if (typeof window === "undefined") return;
+
+      const openButtons = document.querySelectorAll("[data-open-modal]");
+      const overlays = document.querySelectorAll("[data-modal-overlay]");
+
+      const openModal = (id) => {
+        const overlay = document.getElementById(`modal-${id}`);
+        if (!overlay) return;
+        overlay.classList.remove("hidden");
+        overlay.classList.add("flex");
+      };
+
+      const closeModal = (id) => {
+        const overlay = document.getElementById(`modal-${id}`);
+        if (!overlay) return;
+        overlay.classList.add("hidden");
+        overlay.classList.remove("flex");
+      };
+
+      openButtons.forEach((btn) => {
+        btn.addEventListener("click", () => {
+          const id = btn.getAttribute("data-open-modal");
+          if (id) openModal(id);
+        });
+      });
+
+      overlays.forEach((overlay) => {
+        overlay.addEventListener("click", (event) => {
+          if (event.target === overlay) {
+            const id = overlay.id.replace("modal-", "");
+            closeModal(id);
+          }
+        });
+
+        const closeBtn = overlay.querySelector("[data-close-modal]");
+        if (closeBtn) {
+          closeBtn.addEventListener("click", () => {
+            const id = closeBtn.getAttribute("data-close-modal");
+            if (id) closeModal(id);
+          });
+        }
+      });
+    })();
+  </script>
+</BaseLayout>
+

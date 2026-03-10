@@ -1,0 +1,293 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Navbar from "../components/Navbar.astro";
+import Footer from "../components/Footer.astro";
+import ServiceCard from "../components/ServiceCard.astro";
+import ServiceModal from "../components/ServiceModal.astro";
+---
+
+<BaseLayout title="Gestión patrimonial inmobiliaria | Consultoría Belón">
+  <Navbar />
+
+  <main>
+    <!-- Hero -->
+    <section
+      class="section-animate relative bg-white dark:bg-background-dark py-20 lg:py-24 overflow-hidden"
+    >
+      <div
+        class="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(0,141,210,0.18),transparent_70%)]"
+      ></div>
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div class="max-w-3xl">
+          <div
+            class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 text-primary text-xs font-bold tracking-[0.2em] uppercase mb-5"
+          >
+            <span class="material-symbols-outlined text-sm">apartment</span>
+            Gestión patrimonial
+          </div>
+          <h1
+            class="text-4xl sm:text-5xl lg:text-6xl font-black text-neutral-600 dark:text-slate-50 leading-[1.05] mb-6"
+          >
+            Gestión patrimonial
+            <span class="text-primary">inmobiliaria</span>
+          </h1>
+          <p class="text-lg text-neutral-500 dark:text-slate-300 max-w-2xl">
+            Ayudamos a propietarios e inversores a gestionar su patrimonio
+            inmobiliario ofreciendo servicios integrales para alquiler, compra, venta,
+            mantenimiento y valoración de propiedades.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Services grid -->
+    <section class="section-animate-delayed py-20 bg-background-light dark:bg-background-dark">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <header class="max-w-3xl mb-12">
+          <div class="h-1 w-16 bg-primary/70 mb-4 rounded-full"></div>
+          <h2 class="text-3xl font-black mb-3 uppercase tracking-tight">
+            Servicios de gestión patrimonial
+          </h2>
+          <p class="text-neutral-500 dark:text-slate-300">
+            Centralizamos la gestión de sus inmuebles en un único equipo técnico,
+            combinando visión urbanística, fiscal y patrimonial.
+          </p>
+        </header>
+
+        <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          <ServiceCard
+            id="alquiler"
+            icon="key"
+            title="Alquiler de propiedades"
+            description="Gestión integral de alquileres para propietarios que desean delegar la administración diaria."
+          />
+          <ServiceCard
+            id="venta"
+            icon="sell"
+            title="Venta de propiedades"
+            description="Acompañamos al propietario en todo el proceso de venta para maximizar el valor obtenido."
+          />
+          <ServiceCard
+            id="compra"
+            icon="shopping_bag"
+            title="Compra de propiedades"
+            description="Buscamos, analizamos y validamos inmuebles que encajen con la estrategia del inversor."
+          />
+          <ServiceCard
+            id="mantenimiento"
+            icon="handyman"
+            title="Mantenimiento de propiedades"
+            description="Supervisión y mantenimiento periódico de viviendas alquiladas o residencias vacacionales."
+          />
+          <ServiceCard
+            id="valoracion"
+            icon="monitoring"
+            title="Valoración de propiedades"
+            description="Estimaciones profesionales de valor de mercado para tomar decisiones informadas."
+          />
+          <ServiceCard
+            id="tasacion"
+            icon="balance"
+            title="Tasación pericial contradictoria"
+            description="Defensa técnica frente a comprobaciones de valores de la Administración tributaria."
+          />
+        </div>
+      </div>
+    </section>
+
+    <!-- Modals -->
+    <ServiceModal id="alquiler" title="Alquiler de propiedades">
+      <p>
+        Ofrecemos un servicio completo de gestión de alquileres para propietarios que
+        desean delegar la administración de sus inmuebles.
+      </p>
+      <p class="font-semibold text-xs tracking-[0.25em] uppercase text-primary">
+        Servicios incluidos
+      </p>
+      <ul class="list-disc pl-5 space-y-1.5">
+        <li>
+          Redacción de contratos de arrendamiento adaptados a la legislación vigente.
+        </li>
+        <li>Gestión de cobros y pagos.</li>
+        <li>Liquidaciones periódicas con detalle de ingresos y gastos.</li>
+        <li>Actualización de rentas y repercusión de gastos.</li>
+      </ul>
+    </ServiceModal>
+
+    <ServiceModal id="venta" title="Venta de propiedades">
+      <p>
+        Asesoramos a propietarios durante todo el proceso de venta de su inmueble,
+        desde la valoración inicial hasta la firma en notaría.
+      </p>
+      <p class="font-semibold text-xs tracking-[0.25em] uppercase text-primary">
+        Servicios
+      </p>
+      <ul class="list-disc pl-5 space-y-1.5">
+        <li>Valoración del inmueble según mercado.</li>
+        <li>Estrategia de comercialización.</li>
+        <li>Publicidad y difusión del inmueble.</li>
+        <li>Gestión de visitas y filtrado de interesados.</li>
+        <li>Asesoramiento legal en la compraventa.</li>
+      </ul>
+    </ServiceModal>
+
+    <ServiceModal id="compra" title="Compra de propiedades">
+      <p>
+        Asesoramos a compradores durante todo el proceso de adquisición de un
+        inmueble, priorizando la seguridad jurídica y la viabilidad económica.
+      </p>
+      <p class="font-semibold text-xs tracking-[0.25em] uppercase text-primary">
+        Incluye
+      </p>
+      <ul class="list-disc pl-5 space-y-1.5">
+        <li>Análisis de necesidades del comprador.</li>
+        <li>Búsqueda y preselección de propiedades.</li>
+        <li>Verificación registral y legal.</li>
+        <li>Gestión de contratos de arras.</li>
+        <li>Asesoramiento en financiación hipotecaria.</li>
+        <li>Acompañamiento en la firma de compraventa.</li>
+      </ul>
+    </ServiceModal>
+
+    <ServiceModal id="mantenimiento" title="Mantenimiento de propiedades">
+      <p>
+        Servicio de supervisión y mantenimiento para viviendas en alquiler o
+        residencias vacacionales, pensado para propietarios que no pueden estar
+        presentes físicamente.
+      </p>
+      <p class="font-semibold text-xs tracking-[0.25em] uppercase text-primary">
+        Incluye
+      </p>
+      <ul class="list-disc pl-5 space-y-1.5">
+        <li>Supervisión tras condiciones meteorológicas adversas.</li>
+        <li>Revisión de instalaciones eléctricas, gas y seguridad.</li>
+        <li>Mantenimiento de llaves y accesos.</li>
+        <li>Limpieza y mantenimiento interior y exterior.</li>
+        <li>Recogida de correo y paquetería.</li>
+        <li>Cuidado de plantas y zonas ajardinadas.</li>
+        <li>Ventilación periódica de la vivienda.</li>
+        <li>Revisión de electrodomésticos y sanitarios.</li>
+        <li>Coordinación con proveedores y oficios.</li>
+        <li>Gestión de incidencias con inquilinos.</li>
+      </ul>
+    </ServiceModal>
+
+    <ServiceModal id="valoracion" title="Valoración de propiedades">
+      <p>
+        Antes de vender un inmueble es fundamental conocer su valor real de mercado.
+        Realizamos estimaciones profesionales que sirven como base para una
+        estrategia de venta realista.
+      </p>
+      <p class="font-semibold text-xs tracking-[0.25em] uppercase text-primary">
+        Basadas en
+      </p>
+      <ul class="list-disc pl-5 space-y-1.5">
+        <li>Análisis actualizado del mercado inmobiliario.</li>
+        <li>Características físicas y funcionales del inmueble.</li>
+        <li>Ubicación, entorno y potencial de la zona.</li>
+      </ul>
+      <p>
+        Una valoración inicial sólida permite fijar precios coherentes y reducir
+        tiempos de comercialización.
+      </p>
+    </ServiceModal>
+
+    <ServiceModal id="tasacion" title="Tasación pericial contradictoria">
+      <p>
+        Ayudamos a propietarios que han recibido una comprobación de valores por
+        parte de la Administración tributaria y desean defender el valor declarado.
+      </p>
+      <p class="font-semibold text-xs tracking-[0.25em] uppercase text-primary">
+        Servicio incluye
+      </p>
+      <ul class="list-disc pl-5 space-y-1.5">
+        <li>Revisión de la notificación y de los fundamentos de la valoración.</li>
+        <li>Análisis crítico de la valoración administrativa.</li>
+        <li>Designación de perito y coordinación de la tasación independiente.</li>
+        <li>Defensa del valor declarado en el procedimiento.</li>
+      </ul>
+      <p class="font-semibold text-xs tracking-[0.25em] uppercase text-primary">
+        Procedimientos habituales
+      </p>
+      <ul class="list-disc pl-5 space-y-1.5">
+        <li>Impuesto de Transmisiones Patrimoniales (ITP).</li>
+        <li>Impuesto de Sucesiones y Donaciones.</li>
+      </ul>
+    </ServiceModal>
+
+    <!-- CTA -->
+    <section class="section-animate py-20 bg-primary relative overflow-hidden">
+      <div class="absolute inset-0 opacity-10 pointer-events-none">
+        <div
+          class="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-white via-transparent to-transparent"
+        ></div>
+      </div>
+      <div class="max-w-4xl mx-auto px-4 text-center relative z-10">
+        <h2 class="text-3xl lg:text-4xl font-black text-white mb-6 leading-tight">
+          ¿Necesita ayuda con su patrimonio inmobiliario?
+        </h2>
+        <p class="text-white/90 text-lg mb-8">
+          Analizamos su cartera de inmuebles y diseñamos un plan de gestión
+          patrimonial adaptado a sus objetivos de rentabilidad y seguridad.
+        </p>
+        <a
+          href="/contacto"
+          class="inline-flex items-center justify-center bg-white text-primary px-10 py-4 rounded font-black text-sm tracking-[0.2em] uppercase shadow-2xl hover:bg-slate-50 transition-colors"
+        >
+          Contactar con nosotros
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+
+  <!-- Minimal modal script -->
+  <script is:inline>
+    (() => {
+      if (typeof window === "undefined") return;
+
+      const openButtons = document.querySelectorAll("[data-open-modal]");
+      const overlays = document.querySelectorAll("[data-modal-overlay]");
+
+      const openModal = (id) => {
+        const overlay = document.getElementById(`modal-${id}`);
+        if (!overlay) return;
+        overlay.classList.remove("hidden");
+        overlay.classList.add("flex");
+      };
+
+      const closeModal = (id) => {
+        const overlay = document.getElementById(`modal-${id}`);
+        if (!overlay) return;
+        overlay.classList.add("hidden");
+        overlay.classList.remove("flex");
+      };
+
+      openButtons.forEach((btn) => {
+        btn.addEventListener("click", () => {
+          const id = btn.getAttribute("data-open-modal");
+          if (id) openModal(id);
+        });
+      });
+
+      overlays.forEach((overlay) => {
+        overlay.addEventListener("click", (event) => {
+          if (event.target === overlay) {
+            const id = overlay.id.replace("modal-", "");
+            closeModal(id);
+          }
+        });
+
+        const closeBtn = overlay.querySelector("[data-close-modal]");
+        if (closeBtn) {
+          closeBtn.addEventListener("click", () => {
+            const id = closeBtn.getAttribute("data-close-modal");
+            if (id) closeModal(id);
+          });
+        }
+      });
+    })();
+  </script>
+</BaseLayout>
+

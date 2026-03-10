@@ -1,0 +1,245 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import Navbar from "../../components/Navbar.astro";
+import Footer from "../../components/Footer.astro";
+import ServiceCard from "../../components/ServiceCard.astro";
+import ServiceModal from "../../components/ServiceModal.astro";
+---
+
+<BaseLayout title="Property management | Consultoría Belón">
+  <Navbar />
+
+  <main>
+    <!-- Hero -->
+    <section
+      class="section-animate relative bg-white dark:bg-background-dark py-20 lg:py-24 overflow-hidden"
+    >
+      <div
+        class="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(0,141,210,0.18),transparent_70%)]"
+      ></div>
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div class="max-w-3xl">
+          <div
+            class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 text-primary text-xs font-bold tracking-[0.2em] uppercase mb-5"
+          >
+            <span class="material-symbols-outlined text-sm">apartment</span>
+            Property management
+          </div>
+          <h1
+            class="text-4xl sm:text-5xl lg:text-6xl font-black text-neutral-600 dark:text-slate-50 leading-[1.05] mb-6"
+          >
+            Real estate
+            <span class="text-primary">property management</span>
+          </h1>
+          <p class="text-lg text-neutral-500 dark:text-slate-300 max-w-2xl">
+            We help owners and investors manage their real estate portfolios, offering
+            comprehensive services for letting, purchase, sale, maintenance and valuation
+            of properties.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Services grid -->
+    <section class="section-animate-delayed py-20 bg-background-light dark:bg-background-dark">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <header class="max-w-3xl mb-12">
+          <div class="h-1 w-16 bg-primary/70 mb-4 rounded-full"></div>
+          <h2 class="text-3xl font-black mb-3 uppercase tracking-tight">
+            Property management services
+          </h2>
+          <p class="text-neutral-500 dark:text-slate-300">
+            We centralise the management of your properties in a single technical team,
+            combining planning, tax and asset management perspectives.
+          </p>
+        </header>
+
+        <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          <ServiceCard
+            id="alquiler"
+            icon="key"
+            title="Letting management"
+            description="End-to-end management of rental properties for owners who wish to delegate day-to-day administration."
+          />
+          <ServiceCard
+            id="venta"
+            icon="sell"
+            title="Property sales"
+            description="We support owners throughout the sale process to maximise the value obtained."
+          />
+          <ServiceCard
+            id="compra"
+            icon="shopping_bag"
+            title="Property acquisitions"
+            description="We source, analyse and validate properties that fit the investor's strategy."
+          />
+          <ServiceCard
+            id="mantenimiento"
+            icon="handyman"
+            title="Property maintenance"
+            description="Supervision and maintenance of rented homes or second residences."
+          />
+          <ServiceCard
+            id="valoracion"
+            icon="monitoring"
+            title="Property valuations"
+            description="Professional estimates of market value to support informed decisions."
+          />
+          <ServiceCard
+            id="tasacion"
+            icon="balance"
+            title="Contradictory expert valuations"
+            description="Technical defence against tax value assessments by the Tax Administration."
+          />
+        </div>
+      </div>
+    </section>
+
+    <!-- Modals -->
+    <ServiceModal id="alquiler" title="Letting management">
+      <p>
+        We offer a complete letting management service for owners who prefer to delegate
+        the administration of their properties.
+      </p>
+      <p class="font-semibold text-xs tracking-[0.25em] uppercase text-primary">
+        Services included
+      </p>
+      <ul class="list-disc pl-5 space-y-1.5">
+        <li>Drafting of lease agreements in line with current legislation.</li>
+        <li>Management of payments and collections.</li>
+        <li>Periodic statements detailing income and expenses.</li>
+        <li>Rent updates and allocation of service charges.</li>
+      </ul>
+    </ServiceModal>
+
+    <ServiceModal id="venta" title="Property sales">
+      <p>
+        We advise owners throughout the sale of their property, from initial valuation to
+        signing before a notary.
+      </p>
+      <p class="font-semibold text-xs tracking-[0.25em] uppercase text-primary">
+        Services
+      </p>
+      <ul class="list-disc pl-5 space-y-1.5">
+        <li>Market-based property valuation.</li>
+        <li>Sales and marketing strategy.</li>
+        <li>Advertising and promotion of the property.</li>
+        <li>Management of viewings and screening of potential buyers.</li>
+        <li>Legal advice throughout the transaction.</li>
+      </ul>
+    </ServiceModal>
+
+    <ServiceModal id="compra" title="Property acquisitions">
+      <p>
+        We advise buyers throughout the acquisition process, prioritising legal certainty
+        and economic feasibility.
+      </p>
+      <p class="font-semibold text-xs tracking-[0.25em] uppercase text-primary">
+        Includes
+      </p>
+      <ul class="list-disc pl-5 space-y-1.5">
+        <li>Analysis of the client's needs and investment profile.</li>
+        <li>Search and pre-selection of suitable properties.</li>
+        <li>Legal and registry checks.</li>
+        <li>Drafting and negotiation of deposit agreements.</li>
+        <li>Support in obtaining mortgage finance.</li>
+        <li>Assistance at completion and signing of the deed of sale.</li>
+      </ul>
+    </ServiceModal>
+
+    <ServiceModal id="mantenimiento" title="Property maintenance">
+      <p>
+        Maintenance and supervision service for rental properties or second homes,
+        designed for owners who cannot always be on site.
+      </p>
+      <p class="font-semibold text-xs tracking-[0.25em] uppercase text-primary">
+        Includes
+      </p>
+      <ul class="list-disc pl-5 space-y-1.5">
+        <li>Inspections after adverse weather conditions.</li>
+        <li>Checks of electrical, gas and safety installations.</li>
+        <li>Key holding and access management.</li>
+        <li>Interior and exterior cleaning and maintenance.</li>
+        <li>Mail and parcel collection.</li>
+        <li>Care of plants and gardens.</li>
+        <li>Regular ventilation of the dwelling.</li>
+        <li>Inspection of appliances and sanitary fittings.</li>
+        <li>Coordination with suppliers and trades.</li>
+        <li>Management of incidents with tenants.</li>
+      </ul>
+    </ServiceModal>
+
+    <ServiceModal id="valoracion" title="Property valuations">
+      <p>
+        Before selling, it is essential to know the real market value of a property. We
+        prepare professional estimates that form the basis for a realistic sales
+        strategy.
+      </p>
+      <p class="font-semibold text-xs tracking-[0.25em] uppercase text-primary">
+        Based on
+      </p>
+      <ul class="list-disc pl-5 space-y-1.5">
+        <li>Updated analysis of the local property market.</li>
+        <li>Physical and functional characteristics of the property.</li>
+        <li>Location, surroundings and potential of the area.</li>
+      </ul>
+      <p>
+        A sound initial valuation helps to set coherent prices and reduce marketing
+        times.
+      </p>
+    </ServiceModal>
+
+    <ServiceModal id="tasacion" title="Contradictory expert valuations">
+      <p>
+        We support owners who have received a value assessment from the Tax Administration
+        and wish to challenge the value assigned to their property.
+      </p>
+      <p class="font-semibold text-xs tracking-[0.25em] uppercase text-primary">
+        The service includes
+      </p>
+      <ul class="list-disc pl-5 space-y-1.5">
+        <li>Review of the notice and the grounds of the tax valuation.</li>
+        <li>Critical analysis of the administrative assessment.</li>
+        <li>
+          Appointment of an expert and coordination of an independent professional
+          valuation.
+        </li>
+        <li>Defence of the declared value throughout the procedure.</li>
+      </ul>
+      <p class="font-semibold text-xs tracking-[0.25em] uppercase text-primary">
+        Typical procedures
+      </p>
+      <ul class="list-disc pl-5 space-y-1.5">
+        <li>Transfer Tax (ITP).</li>
+        <li>Inheritance and Gift Tax.</li>
+      </ul>
+    </ServiceModal>
+
+    <!-- CTA -->
+    <section class="section-animate py-20 bg-primary relative overflow-hidden">
+      <div class="absolute inset-0 opacity-10 pointer-events-none">
+        <div
+          class="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-white via-transparent to-transparent"
+        ></div>
+      </div>
+      <div class="max-w-4xl mx-auto px-4 text-center relative z-10">
+        <h2 class="text-3xl lg:text-4xl font-black text-white mb-6 leading-tight">
+          Need help managing your real estate portfolio?
+        </h2>
+        <p class="text-white/90 text-lg mb-8">
+          We analyse your property portfolio and design a management plan aligned with
+          your objectives in terms of yield and risk control.
+        </p>
+        <a
+          href="/en/contact"
+          class="inline-flex items-center justify-center bg-white text-primary px-10 py-4 rounded font-black text-sm tracking-[0.2em] uppercase shadow-2xl hover:bg-slate-50 transition-colors"
+        >
+          Contact us
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+</BaseLayout>
+
