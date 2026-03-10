@@ -4,9 +4,14 @@ import Navbar from "../components/Navbar.astro";
 import Footer from "../components/Footer.astro";
 import ServiceCard from "../components/ServiceCard.astro";
 import ServiceModal from "../components/ServiceModal.astro";
+import { pageMeta } from "../config/seo";
+
+const base = import.meta.env.BASE_URL;
+const basePath = base.endsWith("/") ? base.slice(0, -1) : base;
+const meta = pageMeta["/gestion-patrimonial"];
 ---
 
-<BaseLayout title="Gestión patrimonial inmobiliaria | Consultoría Belón">
+<BaseLayout title={meta.title} description={meta.description}>
   <Navbar />
 
   <main>
@@ -231,7 +236,7 @@ import ServiceModal from "../components/ServiceModal.astro";
           patrimonial adaptado a sus objetivos de rentabilidad y seguridad.
         </p>
         <a
-          href="/contacto"
+          href={`${basePath}/contacto`}
           class="inline-flex items-center justify-center bg-white text-primary px-10 py-4 rounded font-black text-sm tracking-[0.2em] uppercase shadow-2xl hover:bg-slate-50 transition-colors"
         >
           Contactar con nosotros

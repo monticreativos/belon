@@ -1,3 +1,8 @@
+---
+const base = import.meta.env.BASE_URL;
+const basePath = base.endsWith("/") ? base.slice(0, -1) : base;
+---
+
 <section class="section-animate-delayed py-24 bg-background-light dark:bg-background-dark">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <header class="max-w-2xl mb-12">
@@ -20,7 +25,7 @@
           residenciales, industriales y mixtas.
         </p>
         <a
-          href="/urbanismo"
+          href={`${basePath}/urbanismo`}
           class="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-[0.18em] text-primary border-b-2 border-primary/20 hover:border-primary transition-all pb-1"
         >
           Ver área de urbanismo
@@ -37,7 +42,7 @@
           frente a Hacienda y Catastro.
         </p>
         <a
-          href="/fiscalidad-inmobiliaria"
+          href={`${basePath}/fiscalidad-inmobiliaria`}
           class="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-[0.18em] text-primary border-b-2 border-primary/20 hover:border-primary transition-all pb-1"
         >
           Ver área fiscal
@@ -54,7 +59,7 @@
           planificación patrimonial.
         </p>
         <a
-          href="/gestion-patrimonial"
+          href={`${basePath}/gestion-patrimonial`}
           class="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-[0.18em] text-primary border-b-2 border-primary/20 hover:border-primary transition-all pb-1"
         >
           Ver gestión patrimonial
@@ -71,7 +76,7 @@
           de inversión.
         </p>
         <a
-          href="/valoraciones"
+          href={`${basePath}/valoraciones`}
           class="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-[0.18em] text-primary border-b-2 border-primary/20 hover:border-primary transition-all pb-1"
         >
           Ver valoraciones

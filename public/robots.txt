@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://monticreativos.github.io/belon/sitemap-index.xml

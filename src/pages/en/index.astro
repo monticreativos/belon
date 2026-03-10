@@ -8,12 +8,14 @@ import ServicesOverview from "../../components/ServicesOverview.astro";
 import AboutStudio from "../../components/AboutStudio.astro";
 import CTA from "../../components/CTA.astro";
 import Footer from "../../components/Footer.astro";
+import { pageMeta } from "../../config/seo";
 
 const base = import.meta.env.BASE_URL;
 const basePath = base.endsWith("/") ? base.slice(0, -1) : base;
+const meta = pageMeta["/"];
 ---
 
-<BaseLayout title="Consultoría Belón | Urban planning and advisory">
+<BaseLayout title={meta.titleEn} description={meta.descriptionEn}>
   <Navbar />
   <HomeHero locale="en" basePath={basePath} />
   <UrbanismoHighlight />

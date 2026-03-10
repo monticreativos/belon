@@ -1,14 +1,19 @@
 ---
 interface Props {
   title?: string;
+  description?: string;
+  canonical?: string;
+  noindex?: boolean;
+  ogImage?: string;
 }
 
 import "../styles/global.css";
 import CookieConsent from "../components/CookieConsent.astro";
 import { getLocaleFromPath, getPathForLocale, pathnameWithoutBase } from "../i18n/routes";
 import FloatingConsultButton from "../components/FloatingConsultButton.astro";
+import { seo, getCanonicalUrl, organization } from "../config/seo";
 
-const { title = "Urbanismo | Consultoría Belón" } = Astro.props;
+const { title = "Urbanismo | Consultoría Belón", description, canonical, noindex = false, ogImage } = Astro.props;
 const base = import.meta.env.BASE_URL;
 const basePath = base.endsWith("/") ? base.slice(0, -1) : base;
 const pathname = pathnameWithoutBase(Astro.url.pathname, base);
@@ -18,6 +23,32 @@ const htmlLang = locale === "en" ? "en" : "es";
 const esHref = basePath + getPathForLocale(pathname, "es");
 const enHref = basePath + getPathForLocale(pathname, "en");
 const origin = Astro.url.origin;
+
+const metaDescription = description ?? (locale === "en" ? seo.defaultDescriptionEn : seo.defaultDescription);
+const canonicalUrl = canonical ?? getCanonicalUrl(pathname);
+const ogImageUrl = ogImage ?? seo.defaultOgImage;
+const ogLocale = locale === "en" ? seo.localeEn : seo.localeEs;
+const alternateLocale = locale === "en" ? seo.localeEs : seo.localeEn;
+
+const jsonLdOrganization = {
+  "@context": "https://schema.org",
+  "@type": "ProfessionalService",
+  name: organization.name,
+  url: organization.url,
+  logo: organization.logo,
+  description: organization.description,
+  address: organization.address,
+  contactPoint: organization.contactPoint,
+};
+
+const jsonLdWebSite = {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  name: seo.siteName,
+  url: organization.url,
+  publisher: { "@id": organization.url },
+  inLanguage: [htmlLang === "es" ? "es" : "en"],
+};
 ---
 
 <html lang={htmlLang} data-base={basePath}>
@@ -25,9 +56,45 @@ const origin = Astro.url.origin;
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>{title}</title>
+    <meta name="description" content={metaDescription} />
+    {noindex ? (
+      <meta name="robots" content="noindex, nofollow" />
+    ) : (
+      <>
+        <link rel="canonical" href={canonicalUrl} />
+        <meta name="robots" content="index, follow" />
+      </>
+    )}
 
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={metaDescription} />
+    <meta property="og:url" content={canonicalUrl} />
+    <meta property="og:image" content={ogImageUrl} />
+    <meta property="og:site_name" content={seo.siteName} />
+    <meta property="og:locale" content={ogLocale} />
+    <meta property="og:locale:alternate" content={alternateLocale} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={metaDescription} />
+    <meta name="twitter:image" content={ogImageUrl} />
+
+    <!-- hreflang (x-default = español) -->
+    <link rel="alternate" hreflang="x-default" href={`${origin}${esHref}`} />
     <link rel="alternate" hreflang="es" href={`${origin}${esHref}`} />
     <link rel="alternate" hreflang="en" href={`${origin}${enHref}`} />
+
+    <!-- JSON-LD structured data -->
+    <script type="application/ld+json" set:html={JSON.stringify(jsonLdOrganization)} />
+    <script type="application/ld+json" set:html={JSON.stringify(jsonLdWebSite)} />
+
+    <!-- Sitemap discovery -->
+    <link rel="sitemap" type="application/xml" href={`${origin}${basePath}/sitemap-index.xml`} />
 
     <link
       rel="stylesheet"
