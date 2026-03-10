@@ -5,22 +5,22 @@ interface Props {
 
 import "../styles/global.css";
 import CookieConsent from "../components/CookieConsent.astro";
-import { getLocaleFromPath, getPathForLocale } from "../i18n/routes";
+import { getLocaleFromPath, getPathForLocale, pathnameWithoutBase } from "../i18n/routes";
 import FloatingConsultButton from "../components/FloatingConsultButton.astro";
 
 const { title = "Urbanismo | Consultoría Belón" } = Astro.props;
 const base = import.meta.env.BASE_URL;
 const basePath = base.endsWith("/") ? base.slice(0, -1) : base;
-const pathname = Astro.url.pathname;
+const pathname = pathnameWithoutBase(Astro.url.pathname, base);
 const locale = getLocaleFromPath(pathname);
 const htmlLang = locale === "en" ? "en" : "es";
 
-const esHref = getPathForLocale(pathname, "es");
-const enHref = getPathForLocale(pathname, "en");
+const esHref = basePath + getPathForLocale(pathname, "es");
+const enHref = basePath + getPathForLocale(pathname, "en");
 const origin = Astro.url.origin;
 ---
 
-<html lang={htmlLang}>
+<html lang={htmlLang} data-base={basePath}>
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -41,7 +41,7 @@ const origin = Astro.url.origin;
       rel="stylesheet"
       href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
     />
-    <link rel="icon" type="image/png" href={`${base}img/favicon.png`} />
+    <link rel="icon" type="image/png" href={`${basePath}/img/favicon.png`} />
 
     <style>
       body {
@@ -57,12 +57,16 @@ const origin = Astro.url.origin;
     <script is:inline>
       (() => {
         try {
-          // Redirección inicial según preferencia de idioma
-          const path = window.location.pathname;
-          const storedLang = localStorage.getItem("preferred-language");
+          var basePath = document.documentElement.getAttribute("data-base") || "";
+          var pathname = window.location.pathname;
+          var path = basePath && pathname.indexOf(basePath) === 0
+            ? (pathname.slice(basePath.length) || "/")
+            : pathname;
 
-          if (storedLang === "en" && !path.startsWith("/en")) {
-            const mapEsToEn = {
+          var storedLang = localStorage.getItem("preferred-language");
+
+          if (storedLang === "en" && path !== "/en" && path.indexOf("/en/") !== 0) {
+            var mapEsToEn = {
               "/": "/en/",
               "/urbanismo": "/en/urban-planning",
               "/gestion-patrimonial": "/en/property-management",
@@ -70,15 +74,15 @@ const origin = Astro.url.origin;
               "/recursos-administrativos": "/en/administrative-law",
               "/contacto": "/en/contact"
             };
-            const target = mapEsToEn[path];
+            var target = mapEsToEn[path];
             if (target) {
-              window.location.replace(target);
+              window.location.replace(basePath + target);
               return;
             }
           }
 
-          if (storedLang === "es" && path.startsWith("/en")) {
-            const mapEnToEs = {
+          if (storedLang === "es" && (path === "/en" || path.indexOf("/en/") === 0)) {
+            var mapEnToEs = {
               "/en/": "/",
               "/en/urban-planning": "/urbanismo",
               "/en/property-management": "/gestion-patrimonial",
@@ -86,9 +90,9 @@ const origin = Astro.url.origin;
               "/en/administrative-law": "/recursos-administrativos",
               "/en/contact": "/contacto"
             };
-            const target = mapEnToEs[path];
+            var target = mapEnToEs[path];
             if (target) {
-              window.location.replace(target);
+              window.location.replace(basePath + target);
               return;
             }
           }

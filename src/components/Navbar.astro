@@ -1,11 +1,11 @@
 ---
 import LanguageSwitcher from "./LanguageSwitcher.astro";
-import { getLocaleFromPath, getPathForLocale } from "../i18n/routes";
+import { getLocaleFromPath, getPathForLocale, pathnameWithoutBase } from "../i18n/routes";
 import { getTranslations } from "../i18n";
 
 const base = import.meta.env.BASE_URL;
 const basePath = base.endsWith("/") ? base.slice(0, -1) : base;
-const currentPath = Astro.url.pathname;
+const currentPath = pathnameWithoutBase(Astro.url.pathname, base);
 const locale = getLocaleFromPath(currentPath);
 const t = getTranslations(locale);
 
@@ -31,7 +31,7 @@ const contactoHref = basePath + getPathForLocale("/contacto", locale);
     <div class="flex justify-between items-center py-4">
       <div class="flex items-center">
         <img
-          src={`${base}img/consultoria-belon.png`}
+          src={`${basePath}/img/consultoria-belon.png`}
           alt="Consultoría Belón"
           class="h-12 w-auto md:h-14"
         />

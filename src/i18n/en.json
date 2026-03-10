@@ -7,6 +7,15 @@
     "valoraciones": "Property Valuations",
     "recursos": "Administrative Law",
     "contacto": "Contact"
+  },
+  "hero": {
+    "badge": "Integrated technical consulting",
+    "title": "Architecture, urban planning and",
+    "titleHighlight": "specialized real estate management.",
+    "description": "Technical practice with over 25 years of experience supporting developers, investors and public administrations on complex land, building and urban planning projects.",
+    "ctaUrbanismo": "Urban planning",
+    "ctaEstudio": "About us",
+    "imageLabel": "High-impact technical projects"
   }
 }
 

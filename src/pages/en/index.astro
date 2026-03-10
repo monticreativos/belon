@@ -8,11 +8,14 @@ import ServicesOverview from "../../components/ServicesOverview.astro";
 import AboutStudio from "../../components/AboutStudio.astro";
 import CTA from "../../components/CTA.astro";
 import Footer from "../../components/Footer.astro";
+
+const base = import.meta.env.BASE_URL;
+const basePath = base.endsWith("/") ? base.slice(0, -1) : base;
 ---
 
 <BaseLayout title="Consultoría Belón | Urban planning and advisory">
   <Navbar />
-  <HomeHero />
+  <HomeHero locale="en" basePath={basePath} />
   <UrbanismoHighlight />
   <Services />
   <ServicesOverview />

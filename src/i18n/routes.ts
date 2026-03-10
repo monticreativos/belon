@@ -1,5 +1,14 @@
 export type Locale = "es" | "en";
 
+/** Quita el base (ej. /belon) del pathname para que las rutas i18n no dupliquen base. */
+export function pathnameWithoutBase(pathname: string, base: string): string {
+  const b = base.endsWith("/") ? base.slice(0, -1) : base;
+  if (!b) return pathname;
+  if (pathname === b || pathname === b + "/") return "/";
+  if (pathname.startsWith(b + "/")) return pathname.slice(b.length) || "/";
+  return pathname;
+}
+
 export const esToEn: Record<string, string> = {
   "/": "/en/",
   "/urbanismo": "/en/urban-planning",
