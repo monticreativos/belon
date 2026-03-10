@@ -9,6 +9,8 @@ import { getLocaleFromPath, getPathForLocale } from "../i18n/routes";
 import FloatingConsultButton from "../components/FloatingConsultButton.astro";
 
 const { title = "Urbanismo | Consultoría Belón" } = Astro.props;
+const base = import.meta.env.BASE_URL;
+const basePath = base.endsWith("/") ? base.slice(0, -1) : base;
 const pathname = Astro.url.pathname;
 const locale = getLocaleFromPath(pathname);
 const htmlLang = locale === "en" ? "en" : "es";
@@ -39,7 +41,7 @@ const origin = Astro.url.origin;
       rel="stylesheet"
       href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
     />
-    <link rel="icon" type="image/png" href="/img/favicon.png" />
+    <link rel="icon" type="image/png" href={`${base}img/favicon.png`} />
 
     <style>
       body {
@@ -366,7 +368,7 @@ const origin = Astro.url.origin;
               >
                 He leído y acepto la
                 <a
-                  href="/politica-privacidad"
+                  href={`${basePath}/politica-privacidad`}
                   class="underline underline-offset-2 decoration-primary/70 hover:text-primary"
                   >política de privacidad</a
                 >

@@ -1,11 +1,13 @@
 ---
 import { getLocaleFromPath, getPathForLocale } from "../i18n/routes";
 
+const base = import.meta.env.BASE_URL;
+const basePath = base.endsWith("/") ? base.slice(0, -1) : base;
 const pathname = Astro.url.pathname;
 const currentLocale = getLocaleFromPath(pathname);
 
-const toEs = getPathForLocale(pathname, "es");
-const toEn = getPathForLocale(pathname, "en");
+const toEs = basePath + getPathForLocale(pathname, "es");
+const toEn = basePath + getPathForLocale(pathname, "en");
 ---
 
 <div

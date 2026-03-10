@@ -1,10 +1,14 @@
+---
+const base = import.meta.env.BASE_URL;
+const basePath = base.endsWith("/") ? base.slice(0, -1) : base;
+---
 <footer class="section-animate bg-neutral-900 text-white py-16 border-t border-neutral-800">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="grid md:grid-cols-4 gap-12 mb-12">
       <div class="col-span-1 md:col-span-1">
         <div class="flex items-center mb-6">
           <img
-            src="/img/consultoria-belon.png"
+            src={`${base}img/consultoria-belon.png`}
             alt="Consultoría Belón"
             class="h-16 w-auto brightness-0 invert"
           />
@@ -23,41 +27,41 @@
         </h5>
         <ul class="space-y-4 text-sm text-slate-400">
           <li>
-            <a href="/" class="hover:text-white transition-colors">Inicio</a>
+            <a href={`${basePath}/`} class="hover:text-white transition-colors">Inicio</a>
           </li>
           <li>
-            <a href="/urbanismo" class="hover:text-white transition-colors"
+            <a href={`${basePath}/urbanismo`} class="hover:text-white transition-colors"
               >Urbanismo</a
             >
           </li>
           <li>
             <a
-              href="/fiscalidad-inmobiliaria"
+              href={`${basePath}/fiscalidad-inmobiliaria`}
               class="hover:text-white transition-colors"
               >Fiscalidad</a
             >
           </li>
           <li>
             <a
-              href="/gestion-patrimonial"
+              href={`${basePath}/gestion-patrimonial`}
               class="hover:text-white transition-colors"
               >Patrimonio</a
             >
           </li>
           <li>
-            <a href="/valoraciones" class="hover:text-white transition-colors"
+            <a href={`${basePath}/valoraciones`} class="hover:text-white transition-colors"
               >Valoraciones</a
             >
           </li>
           <li>
             <a
-              href="/recursos-administrativos"
+              href={`${basePath}/recursos-administrativos`}
               class="hover:text-white transition-colors"
               >Recursos</a
             >
           </li>
           <li>
-            <a href="/contacto" class="hover:text-white transition-colors"
+            <a href={`${basePath}/contacto`} class="hover:text-white transition-colors"
               >Contacto</a
             >
           </li>
@@ -106,13 +110,13 @@
     >
       <p>© 2024 CONSULTORÍA BELÓN. TODOS LOS DERECHOS RESERVADOS.</p>
       <div class="flex gap-8">
-        <a href="/aviso-legal" class="hover:text-white transition-colors"
+        <a href={`${basePath}/aviso-legal`} class="hover:text-white transition-colors"
           >Aviso legal</a
         >
-        <a href="/politica-privacidad" class="hover:text-white transition-colors"
+        <a href={`${basePath}/politica-privacidad`} class="hover:text-white transition-colors"
           >Política de privacidad</a
         >
-        <a href="/politica-cookies" class="hover:text-white transition-colors"
+        <a href={`${basePath}/politica-cookies`} class="hover:text-white transition-colors"
           >Política de cookies</a
         >
         <button
